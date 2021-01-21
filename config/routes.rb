@@ -19,9 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'customer/quit' => 'customers#quit'
     patch 'customer/goodbye' => 'customers#goodbye'
-    patch 'customer/edit' => 'customers#edit'
-    patch 'customer/update' => 'customers#update'
-    patch 'customer' => 'customers#show'
+    resource :customer, only: [:show, :edit, :update]
     resources :products, only: [:index, :show]
     resources :cart_products, only: [:index, :create, :update, :destroy]
     patch 'cart_products' => 'cart_products#all_destroy'
