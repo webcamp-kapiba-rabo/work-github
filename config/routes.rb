@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   end
   
   devise_for :customers
-  root 'homes#top'
-  get 'homes/about' => 'homes#about'
   scope module: :public do
+    root 'homes#top'
+    get 'homes/about' => 'homes#about'
     get 'customer/quit' => 'customers#quit'
     patch 'customer/goodbye' => 'customers#goodbye'
     resource :customer, only: [:show, :edit, :update]
