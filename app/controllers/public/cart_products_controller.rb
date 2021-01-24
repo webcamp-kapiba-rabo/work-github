@@ -7,6 +7,7 @@ class Public::CartProductsController < ApplicationController
   end
   
   def create
+    @cart_product = Cartproduct.new(cart_products_params,customer_id: @customer.id)
   end
   
   def update
@@ -32,7 +33,7 @@ class Public::CartProductsController < ApplicationController
   end
   
   def cart_products_params
-    params.require(:cart_product).permit(:amount)
+    params.require(:cart_product).permit(:product_id ,:amount)
   end
 
   

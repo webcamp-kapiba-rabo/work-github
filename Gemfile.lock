@@ -212,10 +212,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-<<<<<<< HEAD
-=======
   bootstrap (~> 4.5)
->>>>>>> origin/develop
   byebug
   coffee-rails (~> 4.2)
   devise
