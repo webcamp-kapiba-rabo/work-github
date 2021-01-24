@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.fa, .fas {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  line-height: normal;
+}
+
+#notice {
+  color: green;
+}
+
+#error_explanation {
+  color: red;
+}
+
+
+
+.search-form {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+header{
+  font-family:'Montserrat Subrayada', sans-serif;
+}
+
+.footer{
+  background:#9c692c;
+  color:white;
+  font-style: normal;
+}
+
+.copyright{
+  text-align:center;
+}
+address{
+  text-align:right;
+}
+
+.icon{
+  font-size:32px;
+}
