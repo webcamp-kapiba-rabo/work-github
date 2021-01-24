@@ -8,7 +8,8 @@ class Public::ProductController < ApplicationController
   end
 
   def show
-    @admin_product = product.find(params[:id])
+    @product = Product.find(params[:id])
+    @cart_product = CartProduct.new
   end
 
 end
