@@ -1,0 +1,71 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>注文履歴詳細</h2>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-9">
+    <table class="table table-borderless">
+
+        <tbody>
+          <tr>
+            <td>購入者</td>
+            <td>
+              <%= @order.customer.family_name %>
+              <%= @order.customer.first_name %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>注文日</td>
+            <td>
+              <%= @order.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>配送先</td>
+          </tr>
+
+          <tr>
+            <td>支払い方法</td>
+          </tr>
+
+          <tr>
+            <td>注文ステータス</td>
+            <td><%= form_with url: admin_order_path do |form| %>
+   　          　<%= select_tag 'search', options_for_select([["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]]) %>
+                <%= form.submit '更新' %>
+              <% end %>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+    </table>
+</div>
+</div>
+
+div class="row mt-3">
+    <div class="col-sm-9">
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <% @order_products.each do |order_product| %>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+      </table>
