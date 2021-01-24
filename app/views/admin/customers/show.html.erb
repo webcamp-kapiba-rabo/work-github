@@ -1,0 +1,47 @@
+<h2><%= @customer.family_name %><%= @customer.first_name %>さんの会員詳細</h2>
+
+<table class='table'>
+    <tr>
+      <td>会員ID</td>
+      <td><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <td>氏名</td>
+      <td><%= @customer.family_name %> <%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td>カナ</td>
+      <td><%= @customer.family_name_kana %> <%= @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td><%= @customer.postcode %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= @customer.address %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @customer.phone_number %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+    <tr>
+      <td>会員ステータス</td>
+      <td>
+        <% if customer.membership_status == false%>
+          <p><i class="text-secondary"></i>退会</p>
+        <% else %>
+          <p><i class="text-success"></i>有効</p>
+        <% end %>
+      </td>
+    </tr>
+</table>
+
+<div>
+  <%= link_to "編集する",edit_admin_customer_path(@customer) %>
+  <%= link_to " 注文履歴一覧を見る", admin_order_index_path(@customer) %>
+</div>

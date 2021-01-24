@@ -1,5 +1,7 @@
 class Public::CustomersController < ApplicationController
   
+  before_action :active_for_authentication?
+  
   def show
     @customer = current_customer
   end
@@ -11,14 +13,19 @@ class Public::CustomersController < ApplicationController
   def update
     customer = current_customer
     customer.update(customer_params)
-    redirect_to customer_path(customer.id)
+    redirect_to customer_path
   end
     
   def quit
   end
   
-  def destroy
+  def goodbye
+    @customer = current_customer
+    @customer.update(membership_status: false)
+    reset_session
+    redirect_to root_path
   end
+  
   
   private
   def customer_params
