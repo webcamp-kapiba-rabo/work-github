@@ -1,24 +1,25 @@
 Rails.application.routes.draw do
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   
   devise_for :admins, controllers: {
   sessions: 'admins/sessions'
   }
   
   namespace :admin do
-    resources :customers,only: [:index,:show,:edit,:update] 
+    resources :customers,only: [:index,:show,:edit,:update]
     resources :products, only: [:new, :create, :index, :show, :edit, :update]
     root 'products#top'
-    resources :orders, only: [:new, :create, :index, :show]
+    resources :orders, only: [:update, :index, :show]
     resources :genres, only: [:create, :index, :edit, :update]
     resources :order_products, only: [:update]
   end
-  
+
   devise_for :customers
   scope module: :public do
     root 'homes#top'
-    get 'homes/about' => 'homes#about'
+    get 'homes/about' => 'homes#about'  
     get 'customer/quit' => 'customers#quit'
     patch 'customer/goodbye' => 'customers#goodbye'
     resource :customer, only: [:show, :edit, :update]
@@ -29,6 +30,6 @@ Rails.application.routes.draw do
     get 'orders/done' => 'orders#done'
     resources :orders, only: [:new, :create, :index, :show]
     resources :order_products, only: [:create, :destroy]
-    resources :addresses,only: [:create, :index, :edit, :update, :destroy] 
+    resources :addresses,only: [:create, :index, :edit, :update, :destroy]
   end
 end
