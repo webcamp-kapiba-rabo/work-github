@@ -1,6 +1,6 @@
 
 
-<h2>配送先編集</h2>
+<h2 class="marker">配送先編集</h2>
 
 <%= form_with(model: @address, url:address_path , local:true , method: :patch )do |f| %>
   <div>
@@ -23,5 +23,5 @@
 <% end %>
 
   <div>
-     <%= link_to "Back", addresses_path , class: "btn btn-outline-secondary"%>
+     <%= link_to "戻る", addresses_path , class: "btn btn-outline-secondary"%>
   </div>
