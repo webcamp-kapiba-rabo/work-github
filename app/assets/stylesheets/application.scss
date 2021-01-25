@@ -43,14 +43,19 @@
 header{
   font-family:'Montserrat Subrayada', sans-serif;
 }
+.header-name{
+  color: white;
+  padding: 8px 140px 0 0;
+  font-style: normal;
+}
 
 .footer{
   background:#9c692c;
-  color:white;
+  color: white;
   font-style: normal;
   position: absolute;
   bottom: 0;
-  width:100%;
+  width: 100%;
 }
 
 .copyright{
@@ -90,7 +95,7 @@ address{
 }
 
 .marker{
-  background:linear-gradient(transparent 0%, #b4b6b8 90%);
+  background:linear-gradient(transparent 70%, #edde7b);
   display:inline-block
 }
 
@@ -99,6 +104,20 @@ address{
   box-sizing: border-box;
 }
 body{
-  min-height: 190vh;
+  min-height: 150vh;
   position: relative;
+}
+
+.addresses{
+  margin: 30px 0 ;
+}
+
+
+.address{
+  margin:  50px 150px;
+  width: 100%;
+}
+
+.customer{
+   width: 400px;
 }

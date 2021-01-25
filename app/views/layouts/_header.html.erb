@@ -8,6 +8,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
         <% if admin_signed_in? %>  
           <li><%= link_to ' products',admin_products_path,class: 'fas fa-gift nav-link text-light' %></li>
           <li><%= link_to ' customers',admin_customers_path,class: 'fas fa-gift nav-link text-light' %></li>
@@ -17,6 +18,7 @@
         <% elsif customer_signed_in? %>
           <li class="header-name">
             ようこそ、<%= current_customer.family_name %>さん！
+
           </li>
           <li><%= link_to ' mypage',customer_path(current_customer),class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to ' products',products_path,class: 'fas fa-gift nav-link text-light' %></li>
