@@ -15,7 +15,10 @@ Rails.application.routes.draw do
     resources :order_products, only: [:update]
   end
   
-  devise_for :customers
+  devise_for :customers, controllers: {
+  sessions: 'publics/sessions',
+  registrations: 'publics/registrations'
+  }
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'  
