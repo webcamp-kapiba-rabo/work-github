@@ -48,7 +48,7 @@ header{
   background:#9c692c;
   color:white;
   font-style: normal;
-  position: absolute;/* ←絶対位置 */
+  position: absolute;
   bottom: 0;
   width:100%;
 }
@@ -95,10 +95,10 @@ address{
 }
 
 .footerFixed{
-  padding-bottom: 60px; /* ←フッターの高さを指定 */
+  padding-bottom: 60px;
   box-sizing: border-box;
 }
 body{
-  min-height: 100vh;
+  min-height: 190vh;
   position: relative;
 }
