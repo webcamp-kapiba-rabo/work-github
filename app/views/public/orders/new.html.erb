@@ -1,0 +1,17 @@
+<h2>注文情報入力</h2>
+<div>
+  <strong>支払方法</strong>
+</div>
+
+<%= form_with(model: @order, local: true) do |f| %>
+<div>
+  <label><%= f.radio_button :payment_method, :クレジットカード %>クレジットカード</label>
+  <label><%= f.radio_button :payment_method, :銀行振込 %>銀行振込</label>
+</div>
+
+  <strong>お届け先</strong>
+  <div>
+    <label><%= f.radio_button :address_option, 1 %>ご自身の住所</label>
+    <%= current_customer.address %>
+  </div>
+<% end %>
