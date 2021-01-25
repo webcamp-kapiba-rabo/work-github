@@ -1,7 +1,7 @@
 <div class='row'>
 <div class="offset-md-1 col-md-8">
         <h2>商品一覧</h2>
-        <%= link_to "", new_admin_product_path(product), class: "far fa-plus-circle" %>
+        <%= link_to "", new_admin_product_path, class: "far fa-plus-circle" %>
         <!--font Awesomeで＋ボタンを新規追加-->
         <table class="table">
             <thead>
@@ -20,8 +20,8 @@
                         <td><h2 class="product-id"><%= product.id %></h2></td>
                         <td><h2 class="product-name"><%= product.name %></h2></td>
                         <td><h2 class="product-price"><%= product.excluding_tax_price %></h2></td>
-                        <td><h2 class="product-genre"><%= product.genre %></h2></td>
-                        <td><h2 class="product-status"><%= product.status %></h2></td>
+                        <td><h2 class="product-genre"><%= product.genre.name %></h2></td>
+                        <td><h2 class="product-status"><%= product.sale_status %></h2></td>
                     </tr>
                 <% end %>
             </tbody>
