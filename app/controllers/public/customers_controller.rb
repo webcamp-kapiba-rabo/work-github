@@ -1,7 +1,5 @@
 class Public::CustomersController < ApplicationController
   
-  before_action :active_for_authentication?
-  
   def show
     @customer = current_customer
   end
