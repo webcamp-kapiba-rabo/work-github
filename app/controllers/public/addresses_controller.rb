@@ -1,7 +1,8 @@
 class Public::AddressesController < ApplicationController
+    PER = 10
 
     def index
-        @addresses = Address.all
+        @addresses = Address.where(customer_id: current_customer.id).page(params[:page]).per(PER)
         @address = Address.new
     end
 

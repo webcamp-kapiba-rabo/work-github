@@ -2,7 +2,7 @@ class Admin::ProductsController < ApplicationController
    PER = 10
   
   def top
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(PER)
   end
   
   def index

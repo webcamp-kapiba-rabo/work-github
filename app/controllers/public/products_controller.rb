@@ -1,7 +1,8 @@
 class Public::ProductsController < ApplicationController
+  PER = 10
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).per(PER)
     # 上を消して、@products = Product.page(params[:page]).reverse_orderを追加？
     # admin側の商品データがpublic側に反映されるはず？
   end

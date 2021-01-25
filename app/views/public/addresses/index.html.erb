@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker"> 配送先登録/一覧</h2>
+      <%= form_with model: @address, remote: true do |f| %>
         <table class="addresses">
-          <%= form_with(model: @address, :url => {:controller => "public/addresses"}) do |f| %>
-            <tbody>
+          <tbody>
               <tr>
                 <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
                 <td><%= f.text_field :postcode ,placeholder:"0000000" %></td>
@@ -16,11 +16,11 @@
               <tr>
                 <td><%= f.label :"宛名" %></td>
                 <td><%= f.text_field :name , placeholder:"長野太郎"%></td>
-                <td><%= f.submit "配送先登録" ,class:"btn btn-success" %></td>
+                <td><%= f.submit "配送先登録" , class:"btn btn-success" %></td>
               </tr>
-            </tbody>
-          <% end %>
+          </tbody>
         </table>
+      <% end %>
     </div>
   </div>
 </div>
@@ -48,4 +48,6 @@
       <% end %>
     </tbody>
   </table>
+  
+  <%= paginate @addresses %>
 </div>
