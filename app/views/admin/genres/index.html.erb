@@ -1,0 +1,21 @@
+<h2>ジャンル追加・一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <%= form_with model:@product, local:true do |f| %>
+          <td><h4>ジャンル名</h4></td>
+          <td><%= f.text_field :name, autofocus: true, id:"inputTitle", placeholder:"name"%></td>
+          <td><%= f.submit "変更を保存" %></td>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.title %></td>
+          <td><%= link_to "編集する", edit_admin_genre_path(@product), class:"edit_#{@product}", class: "btn btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
