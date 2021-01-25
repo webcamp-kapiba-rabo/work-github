@@ -25,16 +25,22 @@
 
           <tr>
             <td>配送先</td>
+            <td>
+              <%= @order.address %>
+            </td>
           </tr>
 
           <tr>
             <td>支払い方法</td>
+            <td>
+              <%= @order.payment_method %>
+            </td>
           </tr>
 
           <tr>
             <td>注文ステータス</td>
             <td><%= form_with url: admin_order_path(@order),local: true,method: :patch  do |form| %>
-   　          　<%= select_tag 'search', options_for_select([["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]]) %>
+   　          　<%= select_tag 'search', options_for_select([["入金待ち", "0"], ["入金確認","1"],["製作中","2"],["発送準備中","3"],["発送済み","4"]]) %>
                 <%= form.submit '更新' %>
               <% end %>
             </td>

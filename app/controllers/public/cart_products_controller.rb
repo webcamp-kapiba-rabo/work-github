@@ -3,7 +3,7 @@ class Public::CartProductsController < ApplicationController
   before_action :set_customer
   
   def index
-    @cart_products = CartProducts.where(customer_id: @customer.id)
+    # @cart_products = CartProducts.where(customer_id: @customer.id)
   end
   
   def create

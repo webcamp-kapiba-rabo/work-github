@@ -52,6 +52,49 @@
               <td>商品合計</td>
               <td><%= @order.billing_amount %></td>
             </tr>
+
+            <tr>
+              <td>配送料</td>
+              <td><%= @order.delivery_fee %></td>
+            </tr>
+
+            <tr>
+              <td>ご請求額</td>
+              <td><%= @order.billing_amount+@order.delivery_fee %></td>
+            </tr>
           </tbody>
         </table>
       </div>
+
+      <div>
+    <div>
+      <strong>注文内容</strong>
+    </div>
+  </div>
+
+  <div>
+    <div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+
+        <% @order_products.each do |order_products| %>
+        <tbody>
+          <tr>
+            <td><%= order_products.product.name %></td>
+            <td><%= order_products.including_tax_price %></td>
+            <td><%= order_products.amount %></td>
+            <td><%= order_products.including_tax_price * rder_products.amount %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>

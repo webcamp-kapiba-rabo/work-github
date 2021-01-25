@@ -4,6 +4,7 @@
     <div class="row">
      <ul class="col-md-2">
        <span class="span">Menu</span>
+
        <% if customer_signed_in? %>
         <div class="menu">
          <li><%= link_to 'Home', "/",class: ' text-light' %></li>
@@ -19,6 +20,7 @@
           <li><%= link_to 'Products',products_path, class: 'text-light' %></li>
         </div>
        <% end %>
+
      </ul>
      <ul class="col-md-2"></ul>
      <div class="col-md-5"></div>
