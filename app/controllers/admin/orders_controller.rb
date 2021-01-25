@@ -6,8 +6,13 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    @order = Customer.find.(params[:id]).order.page(params[:page])
+    @orders = Order.page(params[:page])
+  end
+
+  def update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    redirect_to admin_order_path(order)
   end
 
 

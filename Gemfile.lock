@@ -212,6 +212,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap (~> 4.5)
   byebug
   coffee-rails (~> 4.2)
   devise
