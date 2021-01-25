@@ -2,13 +2,21 @@
  <footer class="footer">
    <div class="container-fluid">
     <div class="row">
-     <div class="col-md-4">
-       <span>ながのけーき</span>
-     </div>
-    <div class="col-md-8">
+     <ul class="col-md-2">
+       <span class="span">Menu</span>
+       <div class="menu">
+        <li><%= link_to 'Home', "/",class: ' text-light' %></li>
+        <li><%= link_to 'About',homes_about_path, class: 'text-light' %></li>
+        <li><%= link_to 'Mypage',customer_path, class: 'text-light' %></li>
+        <li><%= link_to 'Orders',orders_path, class: 'text-light' %></li>
+       </div>
+     </ul>
+     <ul class="col-md-2"></ul>
+     <div class="col-md-5"></div>
+    <div class="col-md-3">
      <address>
       <dl>
-       <dt>ながのケーキ</dt>
+       <dt class="dt">ながのケーキ</dt>
        <dd>〒123-4567 長野県長野市12-3</dd>
        <dd>Tel 01-2345-6789 Fax 01-2345-6789</dd>
        <dd>長野駅より徒歩10分</dd>
