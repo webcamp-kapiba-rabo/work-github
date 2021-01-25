@@ -1,7 +1,7 @@
 <h2>マイページ</h2>
 <p>
   <strong>登録情報</strong>
-  <%= link_to "編集する", edit_customer_path class:"btn btn-success btn-customer_edit" %>
+  <%= link_to "編集する", edit_customer_path, class:"btn btn-success btn-customer_edit" %>
 </p>
 
 <table class='table'>
@@ -32,4 +32,4 @@
 </table>
 
 <p> <strong>配送先</strong> <%= link_to "一覧を見る", addresses_path, class:"btn btn-primary btn-address_index" %></p>
-<p> <strong>注文履歴</strong> <%= link_to "一覧を見る", order_index_path, class:"btn btn-primary btn-order_index" %></p>
+<p> <strong>注文履歴</strong> <%= link_to "一覧を見る", orders_path, class:"btn btn-primary btn-order_index" %></p>
