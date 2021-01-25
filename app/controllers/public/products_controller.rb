@@ -2,8 +2,7 @@ class Public::ProductController < ApplicationController
 
   def index
     @products = Product.all
-    @product = Product
-    # 上を消す？@products = Product.page(params[:page]).reverse_order
+    # 上を消して、@products = Product.page(params[:page]).reverse_orderを追加？
     # admin側の商品データがpublic側に反映されるはず？
   end
 
