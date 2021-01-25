@@ -1,7 +1,7 @@
 class Public::HomesController < ApplicationController
   
   def top
-    @admin_products = Product.all
+    @products = Product.all
   end
   
   def about
