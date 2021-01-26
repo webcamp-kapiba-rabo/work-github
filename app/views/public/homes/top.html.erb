@@ -1,7 +1,20 @@
-<h3>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。</h3>
+<div id="carousel-example" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000" style="position: relative;">
+	<div class="carousel-inner"  style="position: relative;">
+		<div class="carousel-item active"  style="position: relative;">
+			<div class="image1"  style="position: relative;"></div>
+		</div>
+		<div class="carousel-item"  style="position: relative;">
+			<div class="image2"></div>
+		</div>
+		<div class="carousel-item"  style="position: relative;">
+			<div class="image3"></div>
+		</div>
+		<P>ようこそ、ながのCAKEへ！<br>
+		このサイトは、ケーキ販売のECサイトになります。<br>
+		会員でない方も商品の閲覧はできますが、<br>
+		購入には会員登録が必要になります。</P>
+	</div>
+</div>
 
 <h1>新着商品</h1>
     <% @products.each do |product| %>
@@ -13,4 +26,4 @@
     <% end %>
 
 <%= link_to '商品を検索する', products_path %>
-    
+

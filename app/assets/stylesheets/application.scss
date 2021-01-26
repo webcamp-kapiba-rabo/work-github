@@ -101,23 +101,86 @@ address{
 
 .footerFixed{
   padding-bottom: 60px;
-  box-sizing: border-box;
+//   box-sizing: border-box;
 }
 body{
   min-height: 150vh;
   position: relative;
 }
 
+
 .addresses{
   margin: 30px 0 ;
 }
 
 
-.address{
+.address1{
   margin:  50px 150px;
   width: 100%;
 }
 
 .customer{
    width: 400px;
+}
+
+.customer-edit{
+  margin: 40px 0 ;
+}
+
+
+.carousel-inner p{
+  position: absolute;
+  padding: 25px;
+  margin: 415px 30px 300px 690px;
+  color: #fff;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.carousel-inner img {
+  width: 100%;
+  }
+
+  .image1{
+    background-image: url(imagecake2.jpg);
+    width: 1000px;
+    height: 600px;
+    background-size: cover;
+    background-position: bottom;
+    margin: 0 auto;
+  }
+  .image2{
+    background-image: url(imagecake3.jpg);
+    width: 1000px;
+    height: 600px;
+    background-size: cover;
+    background-position: bottom;
+    margin: 0 auto;
+  }
+  .image3{
+    background-image: url(imagecake1.jpg);
+    width: 1000px;
+    height: 600px;
+    background-size: cover;
+    background-position: bottom;
+    margin: 0 auto;
+  }
+
+// aboutpage
+.about{
+  text-align: center;
+  font-size: 70px;
+}
+.about1{
+  text-align: center;
+  margin-top: 20px;
+}
+.aboutimage{
+  background-image: url(gift.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 850px;
+  height: 400px;
+  margin: 30px auto;
 }
