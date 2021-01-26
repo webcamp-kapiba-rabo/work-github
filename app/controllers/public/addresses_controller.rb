@@ -7,10 +7,11 @@ class Public::AddressesController < ApplicationController
     end
 
     def create
+        @addresses = Address.where(customer_id: current_customer.id)
         @address = Address.new(address_params)
         @address.customer_id = current_customer.id
         @address.save
-       redirect_to addresses_path, notice: "配送先を登録しました"
+    #   redirect_to addresses_path, notice: "配送先を登録しました"
     end
 
     def edit
@@ -24,10 +25,11 @@ class Public::AddressesController < ApplicationController
     end
 
     def destroy
+        @addresses = Address.where(customer_id: current_customer.id)
         @address = Address.find(params[:id])
         @address.destroy
         # @addresses = current_customer.address
-        redirect_to addresses_path, notice: "配送先を削除しました"
+        # redirect_to addresses_path, notice: "配送先を削除しました"
     end
 
 

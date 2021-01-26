@@ -32,7 +32,7 @@
     <tr>
       <td>会員ステータス</td>
       <td>
-        <% if customer.membership_status == false%>
+        <% if @customer.membership_status == false%>
           <p><i class="text-secondary"></i>退会</p>
         <% else %>
           <p><i class="text-success"></i>有効</p>
@@ -43,5 +43,5 @@
 
 <div>
   <%= link_to "編集する",edit_admin_customer_path(@customer), class:"btn btn-success btn-customer_edit" %>
-  <%= link_to " 注文履歴一覧を見る", admin_order_index_path(@customer), class:"btn btn-primary btn-order_index" %>
+  <%= link_to " 注文履歴一覧を見る", admin_orders_path(@customer), class:"btn btn-primary btn-order_index" %>
 </div>

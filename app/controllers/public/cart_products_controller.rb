@@ -3,7 +3,7 @@ class Public::CartProductsController < ApplicationController
   before_action :set_customer
   
   def index
-    @cart_products = CartProducts.where(customer_id: @customer.id)
+    @cart_products = CartProduct.where(customer_id: @customer.id)
   end
   
   def create
@@ -11,7 +11,7 @@ class Public::CartProductsController < ApplicationController
   end
   
   def update
-    @cart_products = CartProducts.where(customer_id: @customer.id)
+    @cart_products = CartProduct.where(customer_id: @customer.id)
     @cart_products.update(cart_products_params)
     redirect_back(fallback_location: root_path)
   end

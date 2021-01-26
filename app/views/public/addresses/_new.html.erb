@@ -1,0 +1,11 @@
+      <% addresses.each do |address| %>
+        <tr>
+          <td><%= address.postcode %></td>
+          <td><%= address.address %></td>
+          <td><%= address.name %></td>
+          <td><%= link_to "編集する", edit_address_path(address) , class: "btn btn-outline-success edit_address_#{address.id}"%></td>
+          <td><%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => '本当に削除しますか？' ,remote: true, class: "btn btn-outline-danger destroy_address_#{address.id}"%></td>
+        </tr>
+        
+        
+      <% end %>
