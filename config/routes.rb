@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   
   devise_for :admins, controllers: {
   sessions: 'admins/sessions'
   }
   
   namespace :admin do
-    resources :customers,only: [:index,:show,:edit,:update] 
+    resources :customers,only: [:index,:show,:edit,:update]
     resources :products, only: [:new, :create, :index, :show, :edit, :update]
     root 'products#top'
     resources :orders, only: [:update, :index, :show]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   sessions: 'publics/sessions',
   registrations: 'publics/registrations'
   }
+
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'  
@@ -28,10 +30,10 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     resources :cart_products, only: [:index, :create, :update, :destroy]
     patch 'cart_products' => 'cart_products#all_destroy'
-    post 'orders/verification' => 'orders#verification'
+    get 'orders/verification' => 'orders#verification'
     get 'orders/done' => 'orders#done'
     resources :orders, only: [:new, :create, :index, :show]
     resources :order_products, only: [:create, :destroy]
-    resources :addresses,only: [:create, :index, :edit, :update, :destroy] 
+    resources :addresses,only: [:create, :index, :edit, :update, :destroy]
   end
 end
