@@ -6,11 +6,11 @@
        <span class="span">Menu</span>
 
        <% if admin_signed_in? %>
-          <li><%= link_to 'Home', "/",class: ' fas fa-gift nav-link text-light' %></li>
-          <li><%= link_to ' products',admin_products_path,class: 'fas fa-gift nav-link text-light' %></li>
-          <li><%= link_to ' customers',admin_customers_path,class: 'fas fa-gift nav-link text-light' %></li>
-          <li><%= link_to ' orders',admin_orders_path,class: 'fas fa-gift nav-link text-light' %></li>
-          <li><%= link_to ' genres',admin_genres_path,class: 'fas fa-gift nav-link text-light' %></li>
+          <li><%= link_to 'Home', "/",class: 'text-light' %></li>
+          <li><%= link_to ' products',admin_products_path,class: 'text-light' %></li>
+          <li><%= link_to ' customers',admin_customers_path,class: 'text-light' %></li>
+          <li><%= link_to ' orders',admin_orders_path,class: 'text-light' %></li>
+          <li><%= link_to ' genres',admin_genres_path,class: 'text-light' %></li>
        <% elsif customer_signed_in? %>
         <div class="menu">
          <li><%= link_to 'Home', "/",class: ' text-light' %></li>

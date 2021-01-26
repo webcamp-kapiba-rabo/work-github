@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker"> 配送先登録/一覧</h2>
-      <%= form_with model: @address, local: false do |f| %>
+      <%= form_with model: @address, remote: true do |f| %>
         <table class="addresses">
           <tbody>
               <tr>
@@ -36,8 +36,16 @@
       </tr>
     </thead>
 
-    <tbody id="post">
-      <%= render 'public/addresses/new', addresses: @addresses %>
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr>
+          <td><%= address.postcode %></td>
+          <td><%= address.address %></td>
+          <td><%= address.name %></td>
+          <td><%= link_to "編集する", edit_address_path(address) , class: "btn btn-outline-success edit_address_#{address.id}"%></td>
+          <td><%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => '本当に削除しますか？' , class: "btn btn-outline-danger destroy_address_#{address.id}"%></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   

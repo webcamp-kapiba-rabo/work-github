@@ -96,13 +96,14 @@ address{
 
 .marker{
   background:linear-gradient(transparent 70%, #edde7b);
-  display:inline-block
+  display:inline-block;
+  margin: 20px 0px 40px 0px;
 }
 
 .footerFixed{
   padding-bottom: 60px;
-//   box-sizing: border-box;
 }
+
 body{
   min-height: 150vh;
   position: relative;
@@ -183,4 +184,31 @@ body{
   width: 850px;
   height: 400px;
   margin: 30px auto;
+}
+// admin_customer
+.text-success{
+  color: green;
+}
+
+// products
+.products1{
+ color: gray;
+}
+.productsicon{
+  // margin: 200px;
+}
+.product-new{
+  margin-left: 150px;
+  // margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 4px 10px;
+}
+.admin-customer{
+  border-collapse: separate;
+  border-spacing: 15px 10px;
+  white-space: nowrap;
+  width: 100px;
+}
+.admin-show{
+  margin-left: 190px;
 }

@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker">配送先編集</h2>
-        <table class="addresses">
-          <%= form_with(model: @address, url:address_path , local:true , method: :patch )do |f| %>
+        <%= form_with(model: @address, url:address_path , local:true , method: :patch )do |f| %>
+          <table class="addresses">
             <tbody>
               <tr>
                 <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
@@ -20,8 +20,8 @@
                 <td><%= link_to "戻る", addresses_path , class: "btn btn-outline-secondary"%></td>
               </tr>
             </tbody>
-          <% end %>
-        </table>
+          </table>
+        <% end %>
     </div>
   </div>
 </div>
