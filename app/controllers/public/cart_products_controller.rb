@@ -20,7 +20,8 @@ class Public::CartProductsController < ApplicationController
   end
   
   def destroy
-    CartProducts.find_by(customer_id: @customer.id, product_id: params[:product_id]).destroy
+    @cart_product = CartProduct.find(customer_id: @customer.id, product_id: params[:product_id])
+    @cart_product.destroy
     redirect_back(fallback_location: root_path)
   end
   
