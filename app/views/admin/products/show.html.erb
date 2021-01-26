@@ -2,23 +2,23 @@
   <table class = "table">
     <tr>
       <th>商品名</th>
-      <th><h3 class="product-name"><%= product.name %></h3></th>
+      <th><h3 class="product-name"><%= @product.name %></h3></th>
     </tr>
     <tr>
       <th>商品説明</th>
-      <th><h3 class="product-body"><%= product.body %></h3></th>
+      <th><h3 class="product-body"><%= @product.body %></h3></th>
     </tr>
     <tr>
       <th>ジャンル</th>
-      <th><h3 class="product-genre"><%= product.genre %></h3></th>
+      <th><h3 class="product-genre"><%= @product.genre.name %></h3></th>
     </tr>
     <tr>
       <th>税込価格（税抜き価格）</th>
-      <th><h3 class="product-price"><%= product.excluding_tax_price %></h3></th>
+      <th><h3 class="product-price"><%= @product.excluding_tax_price %></h3></th>
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><h3 class="product-status"><%= product.status %></h3></th>
+      <th><h3 class="product-status"><%= @product.sale_status %></h3></th>
     </tr>
   </table>
 

@@ -1,8 +1,7 @@
 <h2>ジャンル編集</h2>
-<%= form_with model:product, local:true do |f| %>
+<%= form_with model:@genre, url: admin_genre_path(@genre), local:true, method: :patch do |f| %>
   <h4>ジャンル名</h4>
-  <%= f.text_field :name, autofocus: true, id:"inputTitle", placeholder:"name"%>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"name"%>
   <%= f.submit "変更を保存" %>
 <% end %>
-  
- 
+
