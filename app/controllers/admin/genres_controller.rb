@@ -1,4 +1,4 @@
-class Admin::GenreController < ApplicationController
+class Admin::GenresController < ApplicationController
 
   def index
     @products = Product.all
