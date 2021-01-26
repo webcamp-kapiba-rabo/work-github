@@ -24,7 +24,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to book_path(@book_new.id)
+    redirect_to admin_product_path(@product)
   end
   
   def update
@@ -35,7 +35,7 @@ class Admin::ProductsController < ApplicationController
   
   private
   def product_params
-  params.require(:product).permit(:name, :body, :excluding_tax_price, :image, :sale_status)
+  params.require(:product).permit(:name, :body, :excluding_tax_price, :image_id, :sale_status)
   end
     
   
