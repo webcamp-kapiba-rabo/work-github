@@ -1,11 +1,8 @@
 <h2>商品新規登録</h2>
-  <%= form_with model:@product, local:true do |f| %>
+  <%= form_with model:@product, url: admin_products_path, local:true, method: :post do |f| %>
     <div class="form-group">
       <h5>商品画像</h5>
-
-
-      <%= f.attachment_field :image_id %>
-      
+      <%= f.attachment_field :image, class: 'image' %>
     </div>
 
     <div class="form-group">
@@ -20,18 +17,18 @@
 
     <div class="form-group">
       <h5>ジャンル</h5>
-      <%= select_tag(:choice, options_for_select([["選択してください", "1" ],["ケーキ", "2" ],["プリン", "3" ],["焼き菓子", "4" ],["キャンディ", "5" ]])) %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
     </div>
 
     <div class="form-group">
       <h5>税抜価格</h5>
-      <%= f.text_area :body, autofocus: true, id:"body", placeholder:"1000円"%>
+      <%= f.text_field :excluding_tax_price, autofocus: true, id:"body", placeholder:"1000円"%>
     </div>
 
     <div class="form-group">
       <h5>販売ステータス</h5>
-      <label><%= f.radio_button :sale_status, "販売中" %> 販売中 </label>
-      <label><%= f.radio_button :sale_status, "販売停止中" %> 販売停止中</label>
+      <label><%= f.radio_button :sale_status, "販売中", value: true %> 販売中 </label>
+      <label><%= f.radio_button :sale_status, "販売停止中", value: false %> 販売停止中</label>
     </div>
 
     <div class="form-group">
