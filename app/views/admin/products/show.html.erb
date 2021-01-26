@@ -2,24 +2,24 @@
   <table class = "table">
     <tr>
       <th>商品名</th>
-      <th><h3 class="product-name"><%= @product.name %></h3></th>
+      <th><h5 class="product-name"><%= @product.name %></h5></th>
     </tr>
     <tr>
       <th>商品説明</th>
-      <th><h3 class="product-body"><%= @product.body %></h3></th>
+      <th><h5 class="product-body"><%= @product.body %></h5></th>
     </tr>
     <tr>
       <th>ジャンル</th>
-      <th><h3 class="product-genre"><%= @product.genre.name %></h3></th>
+      <th><h5 class="product-genre"><%= @product.genre.name %></h5></th>
     </tr>
     <tr>
       <th>税込価格（税抜き価格）</th>
-      <th><h3 class="product-price"><%= @product.excluding_tax_price %></h3></th>
+      <th><h5 class="product-price"><%= @product.excluding_tax_price %></h5></th>
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th><h3 class="product-status"><%= @product.sale_status %></h3></th>
+      <th><h5 class="product-status"><%= @product.sale_status %></h5></th>
     </tr>
   </table>
 
-<%= link_to "編集する", cart_products_path(@product), class:"edit_#{@product}", class: "btn btn-success" %>
+<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
