@@ -7,7 +7,9 @@ class Public::CartProductsController < ApplicationController
   end
   
   def create
-    @cart_product = Cartproduct.new(cart_products_params,customer_id: @customer.id)
+     @cart_product = CartProduct.new(cart_products_params)
+    @cart_product.customer_id = @customer.id
+    redirect_to cart_products_path
   end
   
   def update
