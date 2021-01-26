@@ -21,7 +21,7 @@
         <%= cart_product.product.name %>
       </td>
       <td>
-        <%= (cart_product.product.excluding_tax_price.to_i * 1.1).floor %>
+        <%= (cart_product.product.excluding_tax_price * 1.1).floor %>
       </td>
       <td>
         <%= form_with model:cart_product, url: cart_product_path(cart_product), method: :patch , local: true do |f| %>
