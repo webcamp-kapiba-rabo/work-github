@@ -9,6 +9,7 @@ class Public::CartProductsController < ApplicationController
   def create
      @cart_product = CartProduct.new(cart_products_params)
     @cart_product.customer_id = @customer.id
+    @cart_product.save
     redirect_to cart_products_path
   end
   
@@ -24,7 +25,8 @@ class Public::CartProductsController < ApplicationController
   end
   
   def all_destroy
-    CartProducts.where(customer_id: @customer.id).destroy
+    @cart_products = CartProduct.where(customer_id: @customer.id)
+    @cart_products.destroy
     redirect_back(fallback_location: root_path)
   end
   
