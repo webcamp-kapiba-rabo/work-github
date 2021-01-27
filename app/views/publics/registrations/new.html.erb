@@ -15,9 +15,9 @@
           
           <div class="field form-group col-xs-12">
             <%= f.label :"フリガナ", class: "col-sm-2 control-label" %>
-            <%= f.label :"(セイ)", class: "col-sm-2 control-label" %>
+            <%= f.label :"(セイ)", class: "col-sm-1 control-label" %>
             <%= f.text_field :family_name_kana, autofocus: true, class: "col-sm-3 form-control-static name" %>
-            <%= f.label :"(メイ)", class: "col-sm-2 control-label" %>
+            <%= f.label :"(メイ)", class: "col-sm-1 control-label" %>
             <%= f.text_field :first_name_kana, autofocus: true, class: "col-sm-3 form-control-static name" %>
           </div>
           
@@ -55,10 +55,13 @@
             <%= f.submit "新規登録",class: 'btn btn-success btn-lg col-xs-7' %>
           </div>
         <% end %>
+    </div>  
+        
         <div class="col-xs-9">
-          <h2 class="head-line title_h2 text-center">既に登録済みの方</h2>
-          <p class="new-link"><%= render "publics/shared/links" %>からログインしてください。</p>
+          <h3 class="head-line title_h2 text-center">既に登録済みの方</h3>
+          <p class="new-link">
+            <%= link_to "こちら", new_customer_session_path, data: {"turbolinks" => false}, class: "btn-link" %>からログインしてください。 
+          </p>
         </div>
-    </div>
   </div>
 </div>

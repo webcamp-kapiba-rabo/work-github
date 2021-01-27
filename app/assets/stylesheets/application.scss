@@ -132,7 +132,7 @@ body{
 .carousel-inner p{
   position: absolute;
   padding: 25px;
-  margin: 415px 30px 300px 690px;
+  margin: 400px 30px 300px 510px;
   color: #fff;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -203,6 +203,10 @@ body{
   border-collapse: separate;
   border-spacing: 4px 10px;
 }
+.product-new1{
+  margin-left: 400px;
+  padding: 20px;
+}
 .admin-customer{
   border-collapse: separate;
   border-spacing: 15px 10px;
@@ -211,4 +215,66 @@ body{
 }
 .admin-show{
   margin-left: 190px;
+}
+.admin-products-show{
+  border-collapse: separate;
+  border-spacing: 80px 10px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.admin-products-show1{
+  display: flex;
+  margin-top: 80px;
+}
+.admin-products-show2{
+  text-align: center;
+  .btn-success{
+    padding: 10px 30px;
+    margin-top: 20px;
+  }
+}
+.admin-products-edit{
+  border-collapse: separate;
+  border-spacing: 30px 10px;
+  white-space: nowrap;
+  vertical-align: middle;
+  .btn-success{
+    padding: 10px 30px;
+    margin-top: 20px;
+  }
+}
+.admin-products-edit1{
+  margin-left: 410px;
+}
+
+.public-products{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.public-products1{
+  margin: 20px;
+}
+
+// ジャンル
+.genre{
+  border-collapse: separate;
+  border-spacing: 30px 10px;
+  white-space: nowrap;
+}
+
+// カスタマー側の退会
+.quit{
+  text-align: center;
+  margin-top: 150px;
+  font-size: 23px;
+}
+
+.quit1{
+  padding: 50px;
+}
+.quit2{
+  .btn-primary{
+    margin-right: 200px;
+  }
 }

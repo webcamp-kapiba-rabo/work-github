@@ -1,38 +1,51 @@
-<% if @product.errors.any? %>
-  <h6><%= @product.errors.count %>件のエラーが発生しました</h6>
-  <ul>
-  <% @product.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-  <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="marker">商品新規登録</h2>
+      <% if @product.errors.any? %>
+       <h6><%= @product.errors.count %>件のエラーが発生しました</h6>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+          <%= form_with model:@product, url: admin_products_path, local:true, method: :post do |f| %>
+          <table class="product-new" style= "width: 900px;">
+            <tr>
+              <td><h5>商品画像</h5></td>
+              <td><%= f.attachment_field :image, class: 'image' %></td>
+            </tr>
 
-<h2>商品新規登録</h2>
-  <%= form_with model:@product, url: admin_products_path, local:true, method: :post do |f| %>
-    <div class="form-group">
-      <h5>商品画像</h5>
-      <%= f.attachment_field :image, class: 'image' %>
-    </div>
 
-    <div class="form-group">
-      <h5>商品名</h5>
-      <%= f.text_field :name, autofocus: true, id:"name", placeholder:"商品名"%>
-      </div>
+            <tr>
+              <td><h5>商品名</h5></td>
+              <td><%= f.text_field :name, autofocus: true, size: "30" , id:"name", placeholder:"商品名"%></td>
+            </tr>
 
-    <div class="form-group">
-      <h5>商品説明</h5>
-      <%= f.text_area :body, autofocus: true, id:"body", placeholder:"商品説明"%>
-    </div>
+            <tr>
+              <td><h5>商品説明</h5></td>
+              <td><%= f.text_area :body, autofocus: true, size: "30x5" ,id:"body", placeholder:"商品説明"%></td>
+            </tr>
 
-    <div class="form-group">
-      <h5>ジャンル</h5>
-      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
-    </div>
+            <tr>
+              <td><h5>ジャンル</h5></td>
+              <td><%= f.collection_select :genre_id, Genre.all,:id, :name, include_blank: "選択して下さい" %></td>
+            </tr>
 
-    <div class="form-group">
-      <h5>税抜価格</h5>
-      <%= f.text_field :excluding_tax_price, autofocus: true, id:"body", placeholder:"1000"%>
-    </div>
+            <tr>
+              <td><h5>税抜価格</h5></td>
+              <td><%= f.text_field :excluding_tax_price, autofocus: true, id:"body", placeholder:"1000"%>円</td>
+            </tr>
+
+            <tr>
+              <td><h5>販売ステータス</h5></td>
+              <td><label><%= f.radio_button :sale_status, "販売中", value: true %> 販売中 </label>
+              <label><%= f.radio_button :sale_status, "販売停止中", value: false %> 販売停止中</label></td>
+            </tr>
+
+
 
     <div class="form-group">
       <h5>販売ステータス</h5>
@@ -40,7 +53,12 @@
       <label><%= f.radio_button :sale_status, false %><%= f.label :sale_status, "販売停止中", {value: :false, style: "display: inline-block;"} %></label>
     </div>
 
-    <div class="form-group">
-      <%= f.submit "新規登録" %>
+
+          </table>
+          <div class="product-new1">
+            <%= f.submit "新規登録" ,class:"btn btn-success btn-lg" %>
+          </div>
+          <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
