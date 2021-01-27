@@ -105,7 +105,7 @@ address{
 }
 
 body{
-  min-height: 150vh;
+  min-height: 180vh;
   position: relative;
 }
 
@@ -118,6 +118,19 @@ body{
 .address1{
   margin:  50px 150px;
   width: 100%;
+}
+.cart{
+  width: 100%;
+}
+.cart1{
+  text-align: right;
+}
+.cart2{
+  margin: 0 0 0 auto;
+  width: 200px;
+}
+.cart3{
+  margin: 0 auto;
 }
 
 .customer{
@@ -256,6 +269,7 @@ body{
   margin: 20px;
 }
 
+
 // ジャンル
 .genre{
   border-collapse: separate;
@@ -277,4 +291,7 @@ body{
   .btn-primary{
     margin-right: 200px;
   }
+}
+.top{
+  text-align: right;
 }
