@@ -1,25 +1,57 @@
-<%= attachment_image_tag @product, :image, :fill, 200, 300, format: 'png', fallback: "no_image.png" %></td>
-  <table class = "table">
-    <tr>
-      <th>商品名</th>
-      <th><h5 class="product-name"><%= @product.name %></h5></th>
-    </tr>
-    <tr>
-      <th>商品説明</th>
-      <th><h5 class="product-body"><%= @product.body %></h5></th>
-    </tr>
-    <tr>
-      <th>ジャンル</th>
-      <th><h5 class="product-genre"><%= @product.genre.name %></h5></th>
-    </tr>
-    <tr>
-      <th>税込価格（税抜き価格）</th>
-      <th><h5 class="product-price"><%= @product.excluding_tax_price %></h5></th>
-    </tr>
-    <tr>
-      <th>販売ステータス</th>
-      <th><h5 class="product-status"><%= @product.sale_status %></h5></th>
-    </tr>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="marker">商品詳細</h2>
 
-<%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
+          <% if flash[:create] %>
+            <div class="flash">
+          <%= flash[:create] %>
+            </div>
+          <% end %>
+
+          <% if flash[:update] %>
+            <div class="flash">
+          <%= flash[:update] %>
+            </div>
+          <% end %>
+
+       <div class="admin-products-show1">
+          <%= attachment_image_tag @product, :image, size: "300x200" ,fallback: "cake.jpg" %></td>
+
+
+            <table class = "admin-products-show" >
+              <tr>
+                <td>商品名</td>
+                <td><h5 class="product-name"><%= @product.name %></h5></td>
+              </tr>
+              <tr>
+                <td>商品説明</td>
+                <td><h5 class="product-body"><%= @product.body %></h5></td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td><h5 class="product-genre"><%= @product.genre.name %></h5></td>
+              </tr>
+              <tr>
+                <td>税込価格（税抜き価格）</td>
+                <td><h5 class="product-price"><%= @product.excluding_tax_price %></h5></td>
+              </tr>
+              <tr>
+                <td>販売ステータス</td>
+                <td>
+                  <% if @product.sale_status == false %>
+                    <p><i class="text-secondary"></i>販売停止中</p>
+                  <% else %>
+                    <p><i class="text-success"></i>販売中</p>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+
+        </div>
+        <div class="admin-products-show2">
+          <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success btn-lg"%>
+        </div>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker"><%= @customer.family_name %><%= @customer.first_name %>さんの会員情報編集</h2>
-      <%= form_with model: @customer, local:true do |f| %>
-        <table class="admin-customer" style= "width: 900px;margin: 0 auto;">
+      <%= form_with model: @customer, url: admin_customer_path, local:true do |f| %>
+        <table class="admin-customer" style= "width: 900px;">
           <tbody>
       　　    <tr>
               <td><%= f.label :"会員ID" %></td>
@@ -41,7 +41,7 @@
             　      <%= f.radio_button :membership_status, false %><%= f.label :membership_status, "退会", {value: :false, style: "display: inline-block;"} %></td>
               <td><%= f.submit '変更を保存', class:"btn btn-success btn-customer_edit" %></td>
             </tr>
-            
+
           </tbody>
         </table>
       <% end %>

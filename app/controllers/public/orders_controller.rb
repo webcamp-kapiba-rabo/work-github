@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+    before_action :authenticate_customer!
+    
     def show
         @order = Order.find(params[:id])
         @order_products = @order.order_products

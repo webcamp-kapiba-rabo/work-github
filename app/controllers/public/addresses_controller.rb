@@ -1,4 +1,5 @@
 class Public::AddressesController < ApplicationController
+    before_action :authenticate_customer!
     PER = 10
 
     def index
@@ -11,7 +12,7 @@ class Public::AddressesController < ApplicationController
         @address = Address.new(address_params)
         @address.customer_id = current_customer.id
         @address.save
-    #   redirect_to addresses_path, notice: "配送先を登録しました"
+        redirect_to addresses_path, notice: "配送先を登録しました"
     end
 
     def edit
@@ -29,7 +30,7 @@ class Public::AddressesController < ApplicationController
         @address = Address.find(params[:id])
         @address.destroy
         # @addresses = current_customer.address
-        # redirect_to addresses_path, notice: "配送先を削除しました"
+        redirect_to addresses_path, notice: "配送先を削除しました"
     end
 
 
