@@ -1,54 +1,44 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="marker">ジャンル追加・一覧</h2>
-      <% if flash[:create] %>
-        <div class="flash">
+<h2>ジャンル追加・一覧</h2>
+<% if flash[:create] %>
+      <div class="flash">
         <%= flash[:create] %>
-        </div>
-      <% end %>
+      </div>
+<% end %>
 
-      <% if flash[:update] %>
-        <div class="flash">
+<% if flash[:update] %>
+      <div class="flash">
         <%= flash[:update] %>
-        </div>
-       <% end %>
+      </div>
+<% end %>
 
-      <% if @genre.errors.any? %>
-        <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
-         <ul>
-            <% @genre.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-            <% end %>
-         </ul>
-       <% end %>
+<% if @genre.errors.any? %>
+  <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
+  <ul>
+  <% @genre.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
 
-      <%= form_with model:@genre, url: admin_genres_path do |f| %>
-        <table class="genre">
-            <tr>
-              <td><%= f.label :"ジャンル名" %></td>
-              <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"ジャンル名"%></td>
-              <td><%= f.submit "新規登録",class: "btn btn-success" %></td>
-            </tr>
-        </table>
+  <%= form_with model:@genre, url: admin_genres_path do |f| %>
+  <table class="table">
+    <thead>
+      <tr>
+          <td><h4>ジャンル名</h4></td>
+          <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"name"%></td>
+          <td><%= f.submit "新規登録" %></td>
+      </tr>
+    </thead>
 
-        <table class="table" style="width: 500px;margin-top: 50px;">
-          <thead>
-            <tr  bgcolor="lightgray">
-              <th colspan="2">ジャンル</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @genres.each do |genre| %>
-              <tr>
-                <td><%= genre.name %></td>
-                <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-outline-success" %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+    <tbody>
+      <h2>ジャンル</h2>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td><%= genre.name %></td>
+          <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %></td>
+        </tr>
       <% end %>
-    </div>
-  </div>
-</div>
+    </tbody>
+  </table>
+  <% end %>
+

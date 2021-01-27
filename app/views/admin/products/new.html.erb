@@ -41,18 +41,9 @@
 
             <tr>
               <td><h5>販売ステータス</h5></td>
-              <td><label><%= f.radio_button :sale_status, "販売中", value: true %> 販売中 </label>
-              <label><%= f.radio_button :sale_status, "販売停止中", value: false %> 販売停止中</label></td>
+              <td><label><%= f.radio_button :sale_status, true %><%= f.label :sale_status, "販売中", {value: :true, style: "display: inline-block;"} %></label>
+              <label><%= f.radio_button :sale_status, false %><%= f.label :sale_status, "販売停止中", {value: :false, style: "display: inline-block;"} %></label></td>
             </tr>
-
-
-
-    <div class="form-group">
-      <h5>販売ステータス</h5>
-      <label><%= f.radio_button :sale_status, true %><%= f.label :sale_status, "販売中", {value: :true, style: "display: inline-block;"} %></label>
-      <label><%= f.radio_button :sale_status, false %><%= f.label :sale_status, "販売停止中", {value: :false, style: "display: inline-block;"} %></label>
-    </div>
-
 
           </table>
           <div class="product-new1">
