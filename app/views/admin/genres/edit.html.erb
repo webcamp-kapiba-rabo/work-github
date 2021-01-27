@@ -1,4 +1,13 @@
 <h2>ジャンル編集</h2>
+<% if @genre.errors.any? %>
+  <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
+  <ul>
+  <% @genre.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model:@genre, url: admin_genre_path(@genre), local:true, method: :patch do |f| %>
   <h4>ジャンル名</h4>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"name"%>

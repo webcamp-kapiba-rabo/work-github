@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
     validates :name, length:  { in: 1..20 }, presence: true
     validates :body, length: { maximum: 50 }, presence: true
-    validates :excluding_tax_price, length: { in: 1..7 }, presence: true
+    validates :excluding_tax_price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
     validates :sale_status, inclusion: { in: [true, false] }
 
 

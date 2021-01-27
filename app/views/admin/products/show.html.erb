@@ -1,3 +1,16 @@
+<% if flash[:create] %>
+      <div class="flash">
+        <%= flash[:create] %>
+      </div>
+<% end %>
+
+<% if flash[:update] %>
+      <div class="flash">
+        <%= flash[:update] %>
+      </div>
+<% end %>
+
+
 <%= attachment_image_tag @product, :image, :fill, 200, 300, format: 'png', fallback: "no_image.png" %></td>
   <table class = "table">
     <tr>
