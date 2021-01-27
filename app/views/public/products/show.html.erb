@@ -1,11 +1,17 @@
-<%= attachment_image_tag @product, :image, :fill, 200, 300, format: 'png', fallback: "no_image.png" %></td>
+<%= flash[:alert] %>
+
+<%= attachment_image_tag @product, :image, :fill, 200, 300, format: 'png', fallback: "cake.jpg" %></td>
 <h3 class="product-name"><%= @product.name %></h3>
 <h3 class="product-body"><%= @product.body %></h3>
 <h3 class="product-price"><%= @product.excluding_tax_price %></h3>
 
 <%= form_with model:@cart_product, url: cart_products_path, method: :post, local:true do |f| %>
-    <%= f.hidden_field :product_id, value: @product.id %>
-    <%= f.select :amount, ['個数選択', '1', '2', '3', '4', '5', '6', '7', '8', '9'], {include_blank: '選択ボックス'}, class: 'amount' %>
-    <!--　↑個数を入れるセレクトBOX追加-->
-    <%= f.submit "カートに入れる" %>
+   <% if @update_cart_product.present? %>
+      <p>カートに入れています</p>
+   <% else %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.select :amount, [ '1', '2', '3', '4', '5', '6', '7', '8', '9'], class: 'amount' %>
+      <!--　↑個数を入れるセレクトBOX追加-->
+      <%= f.submit "カートに入れる" %>
+   <% end %>
 <% end %>

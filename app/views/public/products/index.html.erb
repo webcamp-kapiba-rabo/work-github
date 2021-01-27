@@ -1,6 +1,6 @@
 <h2>商品一覧</h2>
     <% @products.each do |product| %>
-        <%= attachment_image_tag product, :image, :fill, 150, 250, format: 'png', fallback: "no_image.png" %></td>
+        <%= attachment_image_tag product, :image, :fill, 150, 250, format: 'png', fallback: "cake.jpg" %></td>
         <h3 class="product-name"><%= product.name %></h3>
         <h3 class="product-price"><%= product.excluding_tax_price %></h3>
     <% end %>
