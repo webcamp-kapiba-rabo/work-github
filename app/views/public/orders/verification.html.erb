@@ -13,10 +13,13 @@
   <tbody>
     <% @cart_products.each do |cart_product| %>
       <tr>
-        <td><%= cart_product.name %></td>
-        <td><%= cart_product.products.excluding_tax_price * 1.1 %></td>
+        <td><%= cart_product.product.name %></td>
+        <td><%= (cart_product.product.excluding_tax_price * 1.1).round %></td>
         <td><%= cart_product.amount %></td>
-        <td><%= (cart_product.amount * cart_product.products.excluding_tax_price * 1.1) %></td>
+
+        <td><%= convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %></td>
+        <% @order.billing_amount = convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %>
+
       </tr>
     <% end %>
   </tbody>
@@ -24,12 +27,18 @@
 
 
 <!--order表示-->
+<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
 <strong>支払い方法</strong>
 <%= @order.payment_method %>
 
 <strong>お届け先</strong>
-<%= @order.postcode + @order.address + @order.name%>
+<%= @order.postcode + @order.address + @order.name %>
+<%= f.hidden_field :postcode, :value => @order.postcode %>
+<%= f.hidden_field :name, :value => @order.name %>
+<%= f.hidden_field :address, :value => @order.address %>
+<%= f.hidden_field :billing_amount, :value => @order.billing_amount %>
 
-<div>
-  <%= link_to "注文を確定する", orders_done_path %>
-</div>
+
+
+  <%= f.submit "注文を確定する" %>
+<% end %>

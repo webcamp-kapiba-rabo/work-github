@@ -5,7 +5,9 @@ class Public::OrdersController < ApplicationController
     end
 
     def index
-        @orders = Order.where(customer_id:current_customer)
+        @orders = Order.all
+
+
     end
 
     def new
@@ -58,14 +60,36 @@ class Public::OrdersController < ApplicationController
             @order.address = params[:order][:address]
         end
 
+
+
         @cart_products = current_customer.cart_products
+       # binding.pry
     end
     # |
     # クレジットor銀行払い, 住所
     # ↓
     def create
+        # binding.pry
+        @order = current_customer.orders.new(order_params)
+        @order.save
+        @cart_products = current_customer.cart_products
+        @cart_products.each do |cart_product|
+
+            @order_product = @order.order_products.new
+            @order_product.product_id = cart_product.product.id
+            @order_product.amount = cart_product.amount
+            @order_product.including_tax_price = cart_product.product.excluding_tax_price * 1.1
+            @order_product.save
+        end
+        current_customer.cart_products.destroy_all
+        redirect_to orders_done_path
     end
 
     def done
     end
+
+    private
+  def order_params
+  params.require(:order).permit(:postcode, :billing_amount, :name, :address )
+  end
 end
