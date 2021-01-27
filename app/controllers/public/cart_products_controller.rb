@@ -8,14 +8,8 @@ class Public::CartProductsController < ApplicationController
   end
   
   def create
-     @cart_product = CartProduct.new(cart_products_params)
+    @cart_product = CartProduct.new(cart_products_params)
     @cart_product.customer_id = @customer.id
-    
-    @update_cart_product =  CartProduct.find_by(product: @cart_product.product)
-    if @update_cart_product.present? && @cart_product.valid?
-        @cart_product.amount += @update_cart_product.amount
-        @update_cart_product.destroy
-    end
     
       @cart_product.save
       redirect_to cart_products_path
