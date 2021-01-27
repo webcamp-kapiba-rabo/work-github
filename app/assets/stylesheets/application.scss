@@ -212,3 +212,26 @@ body{
 .admin-show{
   margin-left: 190px;
 }
+
+// ジャンル
+.genre{
+  border-collapse: separate;
+  border-spacing: 30px 10px;
+  white-space: nowrap;
+}
+
+// カスタマー側の退会
+.quit{
+  text-align: center;
+  margin-top: 150px;
+  font-size: 23px;
+}
+
+.quit1{
+  padding: 50px;
+}
+.quit2{
+  .btn-primary{
+    margin-right: 200px;
+  }
+}
