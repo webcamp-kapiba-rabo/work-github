@@ -1,7 +1,17 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker">商品編集</h2>
+      <% if @product.errors.any? %>
+      <h6><%= @product.errors.count %>件のエラーが発生しました</h6>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+          <% end %>
+        </ul>
+       <% end %>
+      
           <%= form_with model:@product, url: admin_product_path, local:true, method: :patch do |f| %>
             <table class="admin-products-edit" style= "width: 900px;margin: 0 auto;">
               <tr>
@@ -23,6 +33,7 @@
                 <td><h5>ジャンル</h5></td>
                 <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %></td>
               </tr>
+
 
               <tr>
                 <td><h5>税抜価格</h5></td>

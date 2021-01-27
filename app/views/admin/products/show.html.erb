@@ -4,6 +4,18 @@
       <h2 class="marker">商品詳細</h2>
 
         <div class="admin-products-show1">
+          <% if flash[:create] %>
+            <div class="flash">
+          <%= flash[:create] %>
+            </div>
+          <% end %>
+
+          <% if flash[:update] %>
+            <div class="flash">
+          <%= flash[:update] %>
+            </div>
+          <% end %>
+          
           <%= attachment_image_tag @product, :image, :fill , format: 'png', size: "300x200" ,fallback: "cake.jpg" %></td>
 
             <table class = "admin-products-show" >
