@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="marker">商品一覧</h2>
+      <div class="public-products">
+          <% @products.each do |product| %>
+        <div class="public-products1">
+              <%= link_to product_path(product.id) do %>
+                  <%= attachment_image_tag product, :image, :fill, size:'235x180' , format: 'png', fallback: "cake.jpg" %>
+              <% end %>
+
+                <p><%= link_to product.name, product_path(product) %></p>
+                <h3 class="product-price">¥<%= product.excluding_tax_price %></h3>
+        </div>
+          <% end %>
+      </div>
+          <%= link_to '商品を検索する', products_path %>
+          <%= paginate @products %>
+    </div>
+  </div>
+</div>
