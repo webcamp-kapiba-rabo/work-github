@@ -28,9 +28,9 @@ Rails.application.routes.draw do
     patch 'customer/goodbye' => 'customers#goodbye'
     resource :customer, only: [:show, :edit, :update]
     resources :products, only: [:index, :show]
+    delete 'cart_products' => 'cart_products#all_destroy'
     resources :cart_products, only: [:index, :create, :update, :destroy]
-    patch 'cart_products' => 'cart_products#all_destroy'
-    get 'orders/verification' => 'orders#verification'
+    post 'orders/verification' => 'orders#verification'
     get 'orders/done' => 'orders#done'
     resources :orders, only: [:new, :create, :index, :show]
     resources :order_products, only: [:create, :destroy]

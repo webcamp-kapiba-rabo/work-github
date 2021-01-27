@@ -1,9 +1,9 @@
 module Public::CartProductsHelper
     
-    def total_price(products)
+    def total_price(cart_products)
         price = 0
-        products.each do |product|
-          price  +=  self.amount.to_i * (product.excluding_tax_price.to_i * 1.1).floor
+        cart_products.each do |cart_product|
+          price  +=  cart_product.amount.to_i * (cart_product.product.excluding_tax_price.to_i * 1.1).floor
         end
         return price
     end

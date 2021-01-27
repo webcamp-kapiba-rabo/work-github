@@ -17,11 +17,11 @@
             <tbody>
                 <% @products.each do |product| %>
                     <tr>
-                        <td><h2 class="product-id"><%= product.id %></h2></td>
-                        <td><h2 class="product-name"><%= product.name %></h2></td>
-                        <td><h2 class="product-price"><%= product.excluding_tax_price %></h2></td>
-                        <td><h2 class="product-genre"><%= product.genre %></h2></td>
-                        <td><h2 class="product-status"><%= product.sale_status %></h2></td>
+                        <td><h5 class="product-id"><%= product.id %></h5></td>
+                        <td><h5 class="product-name"><%= link_to product.name, admin_product_path(product.id) %></h5></td>
+                        <td><h5 class="product-price"><%= product.excluding_tax_price %></h5></td>
+                        <td><h5 class="product-genre"><%= product.genre.name %></h5></td>
+                        <td><h5 class="product-status"><%= product.sale_status %></h5></td>
                     </tr>
                 <% end %>
             </tbody>
