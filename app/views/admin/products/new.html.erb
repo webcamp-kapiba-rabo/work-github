@@ -37,6 +37,13 @@
 
 
 
+    <div class="form-group">
+      <h5>販売ステータス</h5>
+      <label><%= f.radio_button :sale_status, true %><%= f.label :sale_status, "販売中", {value: :true, style: "display: inline-block;"} %></label>
+      <label><%= f.radio_button :sale_status, false %><%= f.label :sale_status, "販売停止中", {value: :false, style: "display: inline-block;"} %></label>
+    </div>
+
+
           </table>
           <div class="product-new1">
             <%= f.submit "新規登録" ,class:"btn btn-success btn-lg" %>

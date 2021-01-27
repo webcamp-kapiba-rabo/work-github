@@ -6,8 +6,8 @@
         <table class="table" style= "width: 900px;margin: 0 auto;">
             <thead>
                 <tr  bgcolor="lightgray">
-                    <th style = "width: 20%;">商品ID</th>
-                    <th style = "width: 25%;">商品名</th>
+                    <th style = "width: 10%;">商品ID</th>
+                    <th style = "width: 35%;">商品名</th>
                     <th style = "width: 15%;">税抜価格</th>
                     <th style = "width: 20%;">ジャンル</th>
                     <th style = "width: 20%;">ステータス</th>
@@ -21,7 +21,13 @@
                         <td><h5 class="product-name"><%= link_to product.name, admin_product_path(product.id) %></h5></td>
                         <td><h5 class="product-price"><%= product.excluding_tax_price %></h5></td>
                         <td><h5 class="product-genre"><%= product.genre.name %></h5></td>
-                        <td><h5 class="product-status"><%= product.sale_status %></h5></td>
+                        <td>
+                            <% if product.sale_status == false %>
+                                <p><i class="text-secondary"></i>販売停止中</p>
+                            <% else %>
+                                <p><i class="text-success"></i>販売中</p>
+                            <% end %>
+                        </td>
                     </tr>
                 <% end %>
             </tbody>
