@@ -3,15 +3,24 @@
     <div class="col-md-12">
       <h2 class="marker">商品詳細</h2>
 
-        <div class="admin-products-show1">
-
-          <%= attachment_image_tag @product, :image, size: "300x200" ,fallback: "cake.jpg" %></td>
-
           <% if flash[:create] %>
             <div class="flash">
           <%= flash[:create] %>
             </div>
           <% end %>
+
+
+          <% if flash[:update] %>
+            <div class="flash">
+          <%= flash[:update] %>
+            </div>
+          <% end %>
+
+       <div class="admin-products-show1">
+          <%= attachment_image_tag @product, :image, size: "300x200" ,fallback: "cake.jpg" %></td>
+
+
+
             <table class = "admin-products-show" >
               <tr>
                 <td>商品名</td>

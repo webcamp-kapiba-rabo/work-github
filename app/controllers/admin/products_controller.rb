@@ -1,5 +1,4 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_admin!
    PER = 10
 
   def top
