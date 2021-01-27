@@ -1,7 +1,29 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <h2 class="marker">ジャンル追加・一覧</h2>
+      <% if flash[:create] %>
+        <div class="flash">
+        <%= flash[:create] %>
+        </div>
+      <% end %>
+
+      <% if flash[:update] %>
+        <div class="flash">
+        <%= flash[:update] %>
+        </div>
+       <% end %>
+
+      <% if @genre.errors.any? %>
+        <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
+         <ul>
+            <% @genre.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+            <% end %>
+         </ul>
+       <% end %>
+
       <%= form_with model:@genre, url: admin_genres_path do |f| %>
         <table class="genre">
             <tr>

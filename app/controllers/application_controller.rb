@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @products = Product.search(params[:search])
+  end
   
 
   def configure_permitted_parameters
