@@ -10,8 +10,6 @@ class Public::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @cart_product = CartProduct.new
-    @update_cart_product =  CartProduct.find_by(product: @product, customer: current_customer)
-    @cart_products = CartProduct.where(customer_id: current_customer.id)
   end
 
 end
