@@ -24,7 +24,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-    flash[:create] = "商品情報をを追加しました"
+    flash[:create] = "商品情報を追加しました"
     redirect_to admin_product_path(@product)
     else
       @products = Product.all
@@ -35,7 +35,7 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-    flash[:update] = "商品情報をを更新しました"
+    flash[:update] = "商品情報を更新しました"
     redirect_to admin_product_path(@product)
     else
       @products = Product.find(params[:id])
