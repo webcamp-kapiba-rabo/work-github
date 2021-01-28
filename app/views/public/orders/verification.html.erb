@@ -1,44 +1,55 @@
-<h2>注文情報確認</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="marker">注文情報確認</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価(税込)</th>
-      <th>数量</th>
-      <th>小計</th>
-    </tr>
-  </thead>
+          <table class="order" border="2" width="500" height="100">
+            <thead>
+              <tr bgcolor="lightgray">
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+              </tr>
+            </thead>
+          
+            <tbody>
+              <% @cart_products.each do |cart_product| %>
+                <tr>
+                  <td><%= cart_product.product.name %></td>
+                  <td><%= (cart_product.product.excluding_tax_price * 1.1).round %></td>
+                  <td><%= cart_product.amount %></td>
+          
+                  <td><%= convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %></td>
+                  <% @order.billing_amount = convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %>
+          
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          
+          
+          <!--order表示-->
+          <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+          <div class="order1">
+            <strong>支払い方法</strong>
+          <%= @order.payment_method %>
+          </div>
+          <div class="order1">
+            <strong>お届け先</strong>
+            <%= @order.postcode + @order.address + @order.name %>
+            <%= f.hidden_field :postcode, :value => @order.postcode %>
+            <%= f.hidden_field :name, :value => @order.name %>
+            <%= f.hidden_field :address, :value => @order.address %>
+            <%= f.hidden_field :billing_amount, :value => @order.billing_amount %>
+          </div>
+          
+          
+          <div class="order2">
+            <%= f.submit "注文を確定する" , class:"btn btn-success"%>
+          </div>
+          <% end %>
 
-  <tbody>
-    <% @cart_products.each do |cart_product| %>
-      <tr>
-        <td><%= cart_product.product.name %></td>
-        <td><%= (cart_product.product.excluding_tax_price * 1.1).round %></td>
-        <td><%= cart_product.amount %></td>
-
-        <td><%= convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %></td>
-        <% @order.billing_amount = convert_to_taxed(cart_product.amount * cart_product.product.excluding_tax_price) %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<!--order表示-->
-<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-<strong>支払い方法</strong>
-<%= @order.payment_method %>
-
-<strong>お届け先</strong>
-<%= @order.postcode + @order.address + @order.name %>
-<%= f.hidden_field :postcode, :value => @order.postcode %>
-<%= f.hidden_field :name, :value => @order.name %>
-<%= f.hidden_field :address, :value => @order.address %>
-<%= f.hidden_field :billing_amount, :value => @order.billing_amount %>
-
-
-
-  <%= f.submit "注文を確定する" %>
-<% end %>
+    </div>
+  </div>
+</div>
