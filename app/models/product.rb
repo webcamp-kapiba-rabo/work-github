@@ -9,9 +9,9 @@ class Product < ApplicationRecord
     validates :excluding_tax_price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
     validates :sale_status, inclusion: { in: [true, false] }
 
-    def self.search(search,produ)
+    def self.search(search,product)
       return Product.all unless search
-      Product.where(['content LIKE ?', "%#{product}%"])
+      Product.where(['content LIKE ?', "%#{search}%"])
     end
     
     def including_tax_price
